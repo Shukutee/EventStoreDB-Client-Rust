@@ -550,7 +550,7 @@ async fn cluster_mode_connection(
                             warn!("Unable to select a node. Retrying...");
                         }
 
-                        tokio::time::delay_for(conn_setts.discovery_interval).await;
+                        tokio::time::sleep(conn_setts.discovery_interval).await;
                         work_queue.push(Msg::CreateChannel(id, seed_opt));
                     }
                 }
@@ -613,7 +613,7 @@ fn single_node_mode(conn_setts: ConnectionSettings, endpoint: Endpoint) -> Unbou
                                     err
                                 );
 
-                                tokio::time::delay_for(conn_setts.discovery_interval).await;
+                                tokio::time::sleep(conn_setts.discovery_interval).await;
                                 work_queue.push(Msg::CreateChannel(id, seed_opt));
                             }
                         }
