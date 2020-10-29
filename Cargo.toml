@@ -55,7 +55,7 @@ name = "integration"
 pretty_env_logger = "0.4"
 tokio-test = "0.3"
 toml = "0.5"
-tokio = { version = "0.3", features = ["macros"] }
+tokio = { version = "0.3", features = ["macros", "rt-multi-thread"] }
 
 [package.metadata.docs.rs]
 all-features = true
